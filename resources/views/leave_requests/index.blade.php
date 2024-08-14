@@ -41,10 +41,10 @@
                 <thead>
                     <tr>
                         <th>Employee Name</th>
-                        <th>Leave Type</th>
+                        <th class="d-none d-sm-table-cell">>Leave Type</th>
                         <th>Start Date</th>
                         <th>End Date</th>
-                        <th>Reason</th>
+                        <th class="d-none d-sm-table-cell">Reason</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -52,10 +52,10 @@
                     @foreach($leaveRequests as $request)
                     <tr>
                         <td>{{ $request->employee_name }}</td>
-                        <td>{{ $request->leave_type }}</td>
+                        <td class="d-none d-sm-table-cell">>{{ $request->leave_type }}</td>
                         <td>{{ \Carbon\Carbon::parse($request->start_date)->format('Y-m-d') }}</td>
                         <td>{{ \Carbon\Carbon::parse($request->end_date)->format('Y-m-d') }}</td>
-                        <td>{{ $request->reason }}</td>
+                        <td class="d-none d-sm-table-cell">>{{ $request->reason }}</td>
                         <td>
                             <a href="{{ route('leave-requests.edit', $request->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{{ route('leave-requests.destroy', $request->id) }}" method="POST" style="display:inline;">
