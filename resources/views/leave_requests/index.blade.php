@@ -20,10 +20,10 @@
         }
         .header-buttons {
             display: flex;
-            gap: 10px; /* Space between buttons */
+            gap: 10px;
         }
         .add-btn {
-            margin-right: auto; /* Push the add button to the left */
+            margin-right: auto;
         }
     </style>
 </head>
@@ -58,11 +58,7 @@
                         <td class="d-none d-sm-table-cell">{{ $request->reason }}</td>
                         <td>
                             <a href="{{ route('leave-requests.edit', $request->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <form action="{{ route('leave-requests.destroy', $request->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
+                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $request->id }}">Delete</button>
                         </td>
                     </tr>
                     @endforeach
@@ -75,6 +71,41 @@
             {{ $leaveRequests->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this leave request?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form id="delete-form" method="POST" action="">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var confirmDeleteModal = document.getElementById('confirmDeleteModal');
+            confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var requestId = button.getAttribute('data-id');
+                var form = document.getElementById('delete-form');
+                form.action = `/leave-requests/${requestId}`;
+            });
+        });
+    </script>
 </body>
 </html>

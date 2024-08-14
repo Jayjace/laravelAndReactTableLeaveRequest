@@ -4,6 +4,8 @@ import { Table, Button, Form, Modal, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './LeaveRequests.css';
 
+
+// Component Definition and State Initialization / innitialize variables
 const LeaveRequests = () => {
   const [leaveRequests, setLeaveRequests] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -22,7 +24,7 @@ const LeaveRequests = () => {
   const [successMessage, setSuccessMessage] = useState(null);
 
   useEffect(() => {
-    fetchLeaveRequests();
+    fetchLeaveRequests();    // fetches data
     handleResize(); // Check screen size on component mount
     window.addEventListener('resize', handleResize); // Update on resize
 
@@ -39,6 +41,7 @@ const LeaveRequests = () => {
     }
   };
 
+  // gets leave requests from laravel api located in routes
   const fetchLeaveRequests = async () => {
     try {
       const response = await axios.get('http://localhost:8000/api/leave-requests');
@@ -48,7 +51,7 @@ const LeaveRequests = () => {
       setGlobalError('Failed to fetch leave requests. Please try again later.');
     }
   };
-
+// handles input I need to do more research on how exactly
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setCurrentRequest({ ...currentRequest, [name]: value });
