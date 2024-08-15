@@ -7,6 +7,7 @@ php artisan key:generate
 php artisan migrate
 php artisan db:seed
 php artisan serve
+on another terminal
 cd .\react-datanova-requests\
 npm install (if needed and must have node installed)
 npm install

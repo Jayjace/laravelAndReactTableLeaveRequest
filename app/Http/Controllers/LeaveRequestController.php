@@ -76,6 +76,7 @@ class LeaveRequestController extends Controller
 
     try {
         $leaveRequest = LeaveRequest::findOrFail($id);
+        // actual insert done here
         $leaveRequest->update($validatedData);
 
         if ($request->wantsJson()) {

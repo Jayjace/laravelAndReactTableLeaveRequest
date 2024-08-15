@@ -14,7 +14,7 @@ use App\Http\Controllers\LeaveRequestController;
 |
 */
 Route::resource('leave-requests', LeaveRequestController::class);
-
+// React calls this api
 Route::get('/api/leave-requests', [LeaveRequestController::class, 'all']);
 Route::get('/leave-requests/create', [LeaveRequestController::class, 'create'])->name('leave-requests.create');
 Route::post('/leave-requests', [LeaveRequestController::class, 'store'])->name('leave-requests.store');
