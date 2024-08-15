@@ -12,3 +12,5 @@ cd .\react-datanova-requests\
 npm install (if needed and must have node installed)
 npm install
 npm run start
+
+I tried this on 2 other computer's and worked fine.
