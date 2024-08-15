@@ -27,4 +27,13 @@
     .form-control.d-none.d-md-block {
         display: none !important;
     }
+
+    /* To stop the table from bouncing.css */
+    .important-width {
+        min-width: 150px; 
+    }
+
+    .leave-requests-table th, .leave-requests-table td {
+        min-width: 150px; 
+    }
 }

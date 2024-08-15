@@ -146,7 +146,7 @@ const LeaveRequests = () => {
       <h1 className="text-center mb-4">Leave Requests</h1>
       <div className="d-flex justify-content-between mb-3">
         <Button variant="primary" onClick={handleShowModal}>Add Leave Request</Button>
-        <Button variant="secondary" onClick={handleBackToLaravel}>Back to Laravel</Button>
+        <Button variant="secondary" onClick={handleBackToLaravel}>Back Home</Button>
       </div>
 
       {/* Global Error and Success Messages */}
@@ -168,7 +168,7 @@ const LeaveRequests = () => {
           <tbody>
             {currentRequests.map((request) => (
               <tr key={request.id}>
-                <td>{request.employee_name}</td>
+                <td className="important-width">{request.employee_name}</td>
                 <td className="d-none d-sm-table-cell">{request.leave_type}</td>
                 <td>{new Date(request.start_date).toLocaleDateString()}</td>
                 <td>{new Date(request.end_date).toLocaleDateString()}</td>

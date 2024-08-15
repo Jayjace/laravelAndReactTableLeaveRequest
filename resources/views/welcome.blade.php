@@ -20,7 +20,7 @@ body {
 }
 .carousel-item img {
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     border: 2px solid #dee2e6;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

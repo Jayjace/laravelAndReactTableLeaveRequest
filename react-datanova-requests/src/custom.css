@@ -2,7 +2,6 @@
     margin: 20px auto;
     max-width: 90%;
     background-color: #f8f9fa;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
@@ -13,7 +12,6 @@
     text-align: center;
     padding: 20px;
     font-size: 24px;
-    border-bottom: 3px solid #007bff;
   }
   
   .table-custom {
@@ -23,7 +21,6 @@
   .table-custom th {
     background-color: #007bff;
     color: #fff;
-    border: none;
   }
   
   .table-custom tr:nth-child(even) {
@@ -33,13 +30,11 @@
   .table-custom td,
   .table-custom th {
     text-align: left;
-    border: solid;
   }
   
   .btn-custom {
     background-color: #007bff;
     color: #fff;
-    border: none;
     margin: 5px;
     min-width: 100px;
   }
@@ -55,14 +50,12 @@
   }
   
   .pagination li {
-    margin: 0 5px;
-    list-style: none;
+    /* margin: 0 5px;
+    list-style: none; */
   }
   
   .pagination li a {
     padding: 8px 16px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
     color: #007bff;
     cursor: pointer;
     text-decoration: none;
@@ -76,7 +69,6 @@
   .pagination .active a {
     background-color: #007bff;
     color: #fff;
-    border: none;
   }
   
   

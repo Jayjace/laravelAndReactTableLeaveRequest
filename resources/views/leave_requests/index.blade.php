@@ -6,8 +6,8 @@
     <title>Leave Requests</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .table th, .table td {
-            text-align: center;
+        .table-striped.table-bordered th, .table-striped.table-bordered td {
+            text-align: left;
         }
         .btn {
             min-width: 100px;
@@ -32,8 +32,8 @@
         <div class="header-row">
             <h1 class="text-center mb-4">Leave Requests</h1>
             <div class="header-buttons">
-                <a href="{{ route('leave-requests.create') }}" class="btn btn-primary add-btn">Add Leave Request</a>
-                <a href="{{ route('welcome') }}" class="btn btn-secondary">Back to Welcome</a>
+                <a href="{{ route('leave-requests.create') }}" class="btn btn-primary add-btn width:24;">Add Leave Request</a>
+                <a href="{{ route('welcome') }}" class="btn btn-secondary">Back to Home</a>
             </div>
         </div>
         <div class="table-responsive">
@@ -51,12 +51,12 @@
                 <tbody>
                     @foreach($leaveRequests as $request)
                     <tr>
-                        <td>{{ $request->employee_name }}</td>
+                        <td style="width: 150px !important;">{{ $request->employee_name }}</td>
                         <td class="d-none d-sm-table-cell">{{ $request->leave_type }}</td>
                         <td>{{ \Carbon\Carbon::parse($request->start_date)->format('Y-m-d') }}</td>
                         <td>{{ \Carbon\Carbon::parse($request->end_date)->format('Y-m-d') }}</td>
                         <td class="d-none d-sm-table-cell">{{ $request->reason }}</td>
-                        <td>
+                        <td >
                             <a href="{{ route('leave-requests.edit', $request->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $request->id }}">Delete</button>
                         </td>
